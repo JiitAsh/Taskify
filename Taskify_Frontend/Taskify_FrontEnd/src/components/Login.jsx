@@ -30,7 +30,7 @@ const Login = () => {
             if (res.data === true) {  // Assuming backend returns true for successful login
                 localStorage.setItem("token", "someAuthToken");  // Store auth token
                 alert("Login successful!");
-                navigate("/dashboard");  // Redirect after login
+                navigate("/dashboard", {state: {username: credentials.username}}); // Redirect after login
             } else {
                 alert("Invalid Username or Password! Please try again.");
             }
