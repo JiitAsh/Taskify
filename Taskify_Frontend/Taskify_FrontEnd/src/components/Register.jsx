@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import "./Register.css";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -31,13 +32,23 @@ const Register = () => {
     e.preventDefault();
 
     // Basic validation
-    if (!user.firstname || !user.lastname || !user.username || !user.password || !user.email || !user.phoneno) {
+    if (
+      !user.firstname ||
+      !user.lastname ||
+      !user.username ||
+      !user.password ||
+      !user.email ||
+      !user.phoneno
+    ) {
       setError("All fields are required!");
       return;
     }
 
     try {
-      const response = await axios.post("http://localhost:8080/Api/User/Register", user);
+      const response = await axios.post(
+        "http://localhost:8080/Api/User/Register",
+        user
+      );
       console.log("Registration successful:", response.data);
       alert("Registration successful! Redirecting to Sign In...");
       navigate("/login"); // Redirect to Signin page after successful registration
@@ -52,13 +63,43 @@ const Register = () => {
       <h2>Register</h2>
       {error && <p className="error">{error}</p>}
       <form onSubmit={handleSubmit}>
-        <input type="text" name="firstname" placeholder="First Name" onChange={handleChange} />
-        <input type="text" name="lastname" placeholder="Last Name" onChange={handleChange} />
-        <input type="text" name="username" placeholder="Username" onChange={handleChange} />
-        <input type="text" name="phoneno" placeholder="Phone Number" onChange={handleChange} />
-        <input type="password" name="password" placeholder="Password" onChange={handleChange} />
-        <input type="email" name="email" placeholder="Email" onChange={handleChange} />
-        
+        <input
+          type="text"
+          name="firstname"
+          placeholder="First Name"
+          onChange={handleChange}
+        />
+        <input
+          type="text"
+          name="lastname"
+          placeholder="Last Name"
+          onChange={handleChange}
+        />
+        <input
+          type="text"
+          name="username"
+          placeholder="Username"
+          onChange={handleChange}
+        />
+        <input
+          type="text"
+          name="phoneno"
+          placeholder="Phone Number"
+          onChange={handleChange}
+        />
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          onChange={handleChange}
+        />
+        <input
+          type="email"
+          name="email"
+          placeholder="Email"
+          onChange={handleChange}
+        />
+
         <label>Category:</label>
         <select name="category" value={user.category} onChange={handleChange}>
           <option value="CUSTOMER">Customer</option>
