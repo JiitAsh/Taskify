@@ -8,5 +8,4 @@ import spring.entity.TasksTable;
 @Repository
 public interface TasksRepo extends JpaRepository<TasksTable, Integer> {
 
-	
 }

@@ -6,7 +6,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import spring.entity.UsersTable;
+
 @Repository
-public interface UsersRepo extends JpaRepository<UsersTable,Integer>{
+public interface UsersRepo extends JpaRepository<UsersTable, Integer> {
 	Optional<UsersTable> findByUsername(String username);
 }

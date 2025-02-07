@@ -30,72 +30,71 @@ import spring.service.Services;
 @CrossOrigin
 @RequestMapping("/Api/User")
 public class Controller implements ControllerInteface {
-	
+
 	@Autowired
-	Services service; 
-	
-//	@PostMapping("/FirstTime")
-//	public ResponseEntity<UsersDTOResponse> addUser(@RequestBody UsersDTORequest dto){
-//		
-//		return ResponseEntity.ok(service.addUser(dto));
-//	}
-	
+	Services service;
+
 	@PostMapping("/Register")
-	public ResponseEntity<UsersDTOResponse> addUser(@RequestBody UsersDTORequest dto){
-		
+	public ResponseEntity<UsersDTOResponse> addUser(@RequestBody UsersDTORequest dto) {
+
 		return ResponseEntity.ok(service.addUser(dto));
 	}
-	
+
 	@PostMapping("/Signin")
 	public boolean signin(@RequestParam String username, @RequestParam String password) {
-	return service.signin(username, password);
+		return service.signin(username, password);
 	}
-	
-	  @PutMapping("/Delete")
-	    public ResponseEntity<String> deleteUser(@RequestParam String username, @RequestParam String password) {
-	        boolean deleted = service.deleteUser(username, password);
-	        
-	        if (deleted) {
-	            return ResponseEntity.ok("User deleted successfully.");
-	        } else {
-	            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found or incorrect password.");
-	        }
-	    }
-	
+
+	@PutMapping("/Delete")
+	public ResponseEntity<String> deleteUser(@RequestParam String username, @RequestParam String password) {
+		boolean deleted = service.deleteUser(username, password);
+
+		if (deleted) {
+			return ResponseEntity.ok("User deleted successfully.");
+		} else {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found or incorrect password.");
+		}
+	}
+
 	@PutMapping("/UpdatePassword")
-	public ResponseEntity<UsersDTOResponse> updatePassword(@RequestParam String username, @RequestParam String password, @RequestParam String newpassword){
+	public ResponseEntity<UsersDTOResponse> updatePassword(@RequestParam String username, @RequestParam String password,
+			@RequestParam String newpassword) {
 		return ResponseEntity.ok(service.updatePassword(username, password, newpassword));
 	}
-	
+
 	@PostMapping("/Logout")
-	public ResponseEntity<UsersDTOResponse> logout(){
+	public ResponseEntity<UsersDTOResponse> logout() {
 		return ResponseEntity.ok(service.logout());
 	}
-	
-	@GetMapping("/GetUser/{id}")   // update ResponseEntity<>
-	public UsersDTOResponse getUserById(@PathVariable int id) {
-		return service.getUserById(id);
+
+	@GetMapping("/GetUser/{id}")
+	public ResponseEntity<UsersDTOResponse> getUserById(@PathVariable int id) {
+		return ResponseEntity.ok(service.getUserById(id));
 	}
-	
-	@PostMapping("/CreateTask")  // ToDo -- add category in pathVariable
-	public boolean createTask(@RequestBody TasksDTORequest task){
+
+	@PostMapping("/CreateTask") // ToDo -- add category in pathVariable
+	public boolean createTask(@RequestBody TasksDTORequest task) {
 		return service.createTask(task, "OPEN");
 	}
-	
+
 	@GetMapping("/BrowseTasks")
-	public List<TasksDTOResponse> getallTask(){
-		return service.getAllTasks();
+	public ResponseEntity<List<TasksDTOResponse>> getallTask() {
+		return ResponseEntity.ok(service.getAllTasks());
 	}
-	
+
 	@GetMapping("/BrowseTasks/{id}")
-	public List<TasksDTOResponse> getTaskByCategory(@PathVariable int id){
-		return service.getTasksByCustomerId(id);
+	public ResponseEntity<List<TasksDTOResponse>> getTaskByCategory(@PathVariable int id) {
+		return ResponseEntity.ok(service.getTasksByCustomerId(id));
 	}
-	
-	@GetMapping("/MyTask/{task_id}")   // to get all bidders
-	public List<BidsDTOResponse> getAllBiddersByTaskId(@PathVariable int task_id){
-		return service.getBidsByTaskId(task_id);
+
+	@GetMapping("/MyTask/{task_id}") // to get all bidders
+	public ResponseEntity<List<BidsDTOResponse>> getAllBiddersByTaskId(@PathVariable int task_id) {
+		return ResponseEntity.ok(service.getBidsByTaskId(task_id));
 	}
-	
+
+	@GetMapping("/Notifications/{id}")
+	public List<TasksDTOResponse> getTasksForNotifications(@PathVariable int id) {
+		return service.getAllTasksForNotifications(id);
+	}
 
 }

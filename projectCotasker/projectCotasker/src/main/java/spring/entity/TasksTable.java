@@ -17,38 +17,38 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="tasks")
+@Table(name = "tasks")
 public class TasksTable {
 
 	@Id
-	@Column(name="task_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int task_id;
-    
-    @Column(name="task_title", nullable = false)
-    private String task_title;
-    
-    @Column(name="task_desc", nullable = false, columnDefinition = "TEXT")
-    private String task_desc;
-    
-    @Column(name="task_category", nullable = false)
-    private String task_category;
-    
-    @Column(name="location", nullable = false)
-    private String location;
-    
-    @Column(name = "task_type", nullable = false)
-    private String task_type;
-    
-    @Column(name="budget", nullable = false)
-    private Double budget;
-    
-    @Column(name = "scheduled_date", nullable = false)
-    private LocalDateTime scheduledDate;
-    
-    @Column(name = "must_haves")
-    private String mustHaves;
-    
+	@Column(name = "task_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int task_id;
+
+	@Column(name = "task_title", nullable = false)
+	private String task_title;
+
+	@Column(name = "task_desc", nullable = false, columnDefinition = "TEXT")
+	private String task_desc;
+
+	@Column(name = "task_category", nullable = false)
+	private String task_category;
+
+	@Column(name = "location", nullable = false)
+	private String location;
+
+	@Column(name = "task_type", nullable = false)
+	private String task_type;
+
+	@Column(name = "budget", nullable = false)
+	private Double budget;
+
+	@Column(name = "scheduled_date", nullable = false)
+	private LocalDateTime scheduledDate;
+
+	@Column(name = "must_haves")
+	private String mustHaves;
+
 //    @ManyToOne
 //    @JoinColumn(name = "poster_id", nullable = false)
 //    private int poster;
@@ -56,31 +56,25 @@ public class TasksTable {
 //    @ManyToOne
 //    @JoinColumn(name = "tasker_id")
 //    private int tasker;
-    
-    @Enumerated(EnumType.STRING)
-    private TaskStatus status = TaskStatus.OPEN;
-    
-    @Column(name = "created_at")
-    private LocalDateTime createdAt = LocalDateTime.now();
-    
-    @Column(name = "updated_at")
-    private LocalDateTime updatedAt = LocalDateTime.now();
-    
+
+	@Enumerated(EnumType.STRING)
+	private TaskStatus status = TaskStatus.OPEN;
+
+	@Column(name = "created_at")
+	private LocalDateTime createdAt = LocalDateTime.now();
+
+	@Column(name = "updated_at")
+	private LocalDateTime updatedAt = LocalDateTime.now();
+
 //    @Column(name="username")
 //    private String username;
-    
-    @ManyToOne
-    @JoinColumn(name="user_id")
-    private UsersTable user;
-    
-    
-    @OneToMany(mappedBy="task")
-    private List<BidTable> bidders = new ArrayList<>();
-    
-    
-    
-    
-	
+
+	@ManyToOne
+	@JoinColumn(name = "user_id")
+	private UsersTable user;
+
+	@OneToMany(mappedBy = "task")
+	private List<BidTable> bidders = new ArrayList<>();
 
 	public List<BidTable> getBidders() {
 		return bidders;
@@ -194,8 +188,8 @@ public class TasksTable {
 		this.user = user;
 	}
 
-	
-	public TasksTable() {}
+	public TasksTable() {
+	}
 
 	public TasksTable(String task_title, String task_desc, String task_category, String location, String task_type,
 			Double budget, LocalDateTime scheduledDate, String mustHaves, TaskStatus status, LocalDateTime createdAt,
@@ -216,11 +210,4 @@ public class TasksTable {
 		this.bidders = bidders;
 	}
 
-	
-	
-	
-    
-    
-	
-	
 }

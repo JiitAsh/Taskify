@@ -17,48 +17,40 @@ import jakarta.persistence.Table;
 @Table(name = "UsersTable")
 
 public class UsersTable {
-	
-	@Id  // primary key
-	@Column(name="user_id")
-	@GeneratedValue(strategy = GenerationType.IDENTITY)   // auto increment
+
+	@Id // primary key
+	@Column(name = "user_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY) // auto increment
 	private int id;
-	
-	
-	@Column(name="firstname", nullable = false)
+
+	@Column(name = "firstname", nullable = false)
 	private String firstname;
-	
-	@Column(name="lastname", nullable = false)
+
+	@Column(name = "lastname", nullable = false)
 	private String lastname;
-	
-	
+
 	@Column(name = "username", nullable = false)
 	private String username;
-	
-	@Column(name="password")
+
+	@Column(name = "password")
 	private String password;
-	
-	@Column(name="phoneno")
+
+	@Column(name = "phoneno")
 	private String phoneno;
-	
-	 @Column(name = "email") 
-	 private String email;
-	 
-	 
+
+	@Column(name = "email")
+	private String email;
+
 	@Enumerated(EnumType.STRING)
-	@Column(name="category")
+	@Column(name = "category")
 	private Category category;
-	
-	
-	@Column(name="deleteflag")
+
+	@Column(name = "deleteflag")
 	private int deleteflag = 0;
-	
-	
-	@OneToMany(mappedBy="user")
+
+	@OneToMany(mappedBy = "user")
 	private List<TasksTable> tasks = new ArrayList<>();
-	
-	
-	
-	
+
 	public List<TasksTable> getTasks() {
 		return tasks;
 	}
@@ -78,7 +70,7 @@ public class UsersTable {
 	public int getId() {
 		return id;
 	}
-	
+
 	public String getFirstname() {
 		return firstname;
 	}
@@ -143,11 +135,12 @@ public class UsersTable {
 		this.deleteflag = deleteflag;
 	}
 
-	public UsersTable() {}
+	public UsersTable() {
+	}
 
-	public UsersTable(String firstname, String lastname, String username, String password, String phoneno,
-			String email, Category category, List<TasksTable> tasks) {
-		
+	public UsersTable(String firstname, String lastname, String username, String password, String phoneno, String email,
+			Category category, List<TasksTable> tasks) {
+
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.username = username;
@@ -158,7 +151,5 @@ public class UsersTable {
 		this.deleteflag = 0;
 		this.tasks = tasks;
 	}
-	
-	
-	
+
 }

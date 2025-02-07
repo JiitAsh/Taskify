@@ -3,45 +3,38 @@ package spring.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
-import java.math.BigDecimal;
 
 @Data
 @Entity
 @Table(name = "bids")
 public class BidTable {
-    @Id
-    @Column(name="bid_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int bid_id;
-    
-    @Column(name = "bidder_id", nullable = false)
-    private int bidder;
-    
-    @Column(name = "amount", nullable = false)
-    private Double amount;
-    
-    @Column(name="proposal", nullable = false, columnDefinition = "TEXT")
-    private String proposal;
-    
-    @Column(name = "estimated_hours")
-    private int estimatedHours;
-    
-    @Column(name = "is_accepted")
-    private int isAccepted = 0;
-    
-    @Column(name = "created_at")
-    private LocalDateTime createdAt = LocalDateTime.now();
-    
-    @ManyToOne
-    @JoinColumn(name="task_id")
-    private TasksTable task;
-    
-    
+	@Id
+	@Column(name = "bid_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int bid_id;
 
-    
-    
+	@Column(name = "bidder_id", nullable = false)
+	private int bidder;
+
+	@Column(name = "amount", nullable = false)
+	private Double amount;
+
+	@Column(name = "proposal", nullable = false, columnDefinition = "TEXT")
+	private String proposal;
+
+	@Column(name = "estimated_hours")
+	private int estimatedHours;
+
+	@Column(name = "is_accepted")
+	private int isAccepted = 0;
+
+	@Column(name = "created_at")
+	private LocalDateTime createdAt = LocalDateTime.now();
+
+	@ManyToOne
+	@JoinColumn(name = "task_id")
+	private TasksTable task;
+
 	public TasksTable getTask() {
 		return task;
 	}
@@ -106,15 +99,13 @@ public class BidTable {
 		this.createdAt = createdAt;
 	}
 
-	
-
 	public BidTable() {
-		
+
 		// TODO Auto-generated constructor stub
 	}
 
-	public BidTable(int bidder, Double amount, String proposal, int estimatedHours, 
-			LocalDateTime createdAt, TasksTable task) {
+	public BidTable(int bidder, Double amount, String proposal, int estimatedHours, LocalDateTime createdAt,
+			TasksTable task) {
 		this.bidder = bidder;
 		this.amount = amount;
 		this.proposal = proposal;
@@ -124,10 +115,4 @@ public class BidTable {
 		this.task = task;
 	}
 
-	
-    
-    
-    
-	
-    
 }
