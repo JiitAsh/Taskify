@@ -9,6 +9,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import spring.dto.BidsDTORequest;
 import spring.dto.BidsDTOResponse;
 import spring.dto.TasksDTORequest;
 import spring.dto.TasksDTOResponse;
@@ -138,6 +139,17 @@ public class ServicesImplementation implements Services {
 	}
 
 	@Override
+	public UsersDTOResponse getUserByUsername(String username) {
+		Optional<UsersTable> optUser = user_repo.findByUsername(username);
+		UsersDTOResponse userDto = new UsersDTOResponse();
+		if (optUser.isPresent()) {
+			UsersTable user = optUser.get();
+			BeanUtils.copyProperties(user, userDto);
+		}
+		return userDto;
+	}
+
+	@Override
 	public boolean createTask(TasksDTORequest task, String task_type) {
 		TasksTable new_task = new TasksTable();
 		BeanUtils.copyProperties(task, new_task);
@@ -198,6 +210,16 @@ public class ServicesImplementation implements Services {
 		List<TasksDTOResponse> allTasks = getTasksByCustomerId(id);
 		Collections.sort(allTasks, Comparator.comparing(TasksDTOResponse::getUpdatedAt).reversed());
 		return allTasks;
+	}
+
+	@Override
+	public boolean createBid(BidsDTORequest bidDto, String username) {
+		UsersDTOResponse user = getUserByUsername(username);
+		bidDto.setBidder(user.getId());
+		BidTable bid = new BidTable();
+		BeanUtils.copyProperties(bidDto, bid);
+		bid_repo.save(bid);
+		return true;
 	}
 
 }

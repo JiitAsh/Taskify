@@ -15,15 +15,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import spring.dto.BidsDTORequest;
 import spring.dto.BidsDTOResponse;
 import spring.dto.TasksDTORequest;
 import spring.dto.TasksDTOResponse;
-//import jakarta.validation.Valid;
-//import spring.dto.TaskDTORequest;
-//import spring.dto.TaskDTOResponse;
 import spring.dto.UsersDTORequest;
 import spring.dto.UsersDTOResponse;
-//import spring.entity.Task;
 import spring.service.Services;
 
 @RestController
@@ -95,6 +92,11 @@ public class Controller implements ControllerInteface {
 	@GetMapping("/Notifications/{id}")
 	public ResponseEntity<List<TasksDTOResponse>> getTasksForNotifications(@PathVariable int id) {
 		return ResponseEntity.ok(service.getAllTasksForNotifications(id));
+	}
+	
+	@PostMapping("/CreateBid/{username}")
+	public boolean createBid(@RequestBody BidsDTORequest bidDto, @PathVariable String username) {
+		return service.createBid(bidDto, username);
 	}
 
 }

@@ -3,6 +3,8 @@ package spring.controller;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
+
+import spring.dto.BidsDTORequest;
 import spring.dto.BidsDTOResponse;
 import spring.dto.TasksDTORequest;
 import spring.dto.TasksDTOResponse;
@@ -30,6 +32,8 @@ public interface ControllerInteface {
 
 	public ResponseEntity<List<BidsDTOResponse>> getAllBiddersByTaskId(int task_id);
 
-	public ResponseEntity<List<TasksDTOResponse>>  getTasksForNotifications(int id);
+	public ResponseEntity<List<TasksDTOResponse>> getTasksForNotifications(int id);
+
+	public boolean createBid(BidsDTORequest bidDto, String username);
 
 }
