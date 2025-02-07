@@ -93,8 +93,8 @@ public class Controller implements ControllerInteface {
 	}
 
 	@GetMapping("/Notifications/{id}")
-	public List<TasksDTOResponse> getTasksForNotifications(@PathVariable int id) {
-		return service.getAllTasksForNotifications(id);
+	public ResponseEntity<List<TasksDTOResponse>> getTasksForNotifications(@PathVariable int id) {
+		return ResponseEntity.ok(service.getAllTasksForNotifications(id));
 	}
 
 }

@@ -30,6 +30,6 @@ public interface ControllerInteface {
 
 	public ResponseEntity<List<BidsDTOResponse>> getAllBiddersByTaskId(int task_id);
 
-	public List<TasksDTOResponse> getTasksForNotifications(int id);
+	public ResponseEntity<List<TasksDTOResponse>>  getTasksForNotifications(int id);
 
 }
