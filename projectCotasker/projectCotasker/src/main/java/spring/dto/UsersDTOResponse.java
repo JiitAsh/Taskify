@@ -1,12 +1,10 @@
 package spring.dto;
 
-
 import lombok.Data;
 import spring.entity.Category;
 
-
 @Data
-public class UserDTORequest {
+public class UsersDTOResponse {
 
 	private int id;
 	private String firstname;
@@ -15,15 +13,27 @@ public class UserDTORequest {
 	private String phoneno;
 	private String password;
 	private String email;
-	private Category category;	
-	private boolean deleteflag = false;
+	private Category category;
+	private int deleteflag = 0;
+	private String message;
 	
+	
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
 	public int getId() {
 		return id;
 	}
-	public void setId(int id) {
-		this.id = id;
+	
+	public void setId(int Id) {
+		this.id = Id;
 	}
+	
 	public String getFirstname() {
 		return firstname;
 	}
@@ -66,16 +76,18 @@ public class UserDTORequest {
 	public void setCategory(Category category) {
 		this.category = category;
 	}
-	public boolean isDeleteflag() {
+	public int isDeleteflag() {
 		return deleteflag;
 	}
-	public void setDeleteflag(boolean deleteflag) {
+	public void setDeleteflag(int deleteflag) {
 		this.deleteflag = deleteflag;
 	}
-		
-	public UserDTORequest(String firstname, String lastname, String username, String phoneno, String password,
-			String email, Category category) {
-		
+
+	public UsersDTOResponse() {}
+
+	public UsersDTOResponse(String firstname, String lastname, String username, String phoneno, String password,
+			String email, Category category, int deleteflag) {
+		super();
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.username = username;
@@ -83,17 +95,13 @@ public class UserDTORequest {
 		this.password = password;
 		this.email = email;
 		this.category = category;
-		this.deleteflag = false;
+		this.deleteflag = deleteflag;
 	}
-	
-	public UserDTORequest() {
-		this.deleteflag = false;
-	}
-	
+
 	@Override
 	public String toString() {
-		return "UserDTORequest [id=" + id + ", firstname=" + firstname + ", lastname=" + lastname + ", username="
+		return "UserDTOResponse [id=" + id + ", firstname=" + firstname + ", lastname=" + lastname + ", username="
 				+ username + ", phoneno=" + phoneno + ", password=" + password + ", email=" + email + ", category="
 				+ category + ", deleteflag=" + deleteflag + "]";
-	}	
+	}		
 }

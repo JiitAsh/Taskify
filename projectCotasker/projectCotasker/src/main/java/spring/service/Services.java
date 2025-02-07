@@ -1,13 +1,36 @@
 package spring.service;
 
-import spring.dto.UserDTORequest;
-import spring.dto.UserDTOResponse;
+import java.util.List;
+import java.util.Optional;
+
+import spring.dto.BidsDTOResponse;
+import spring.dto.TasksDTORequest;
+import spring.dto.TasksDTOResponse;
+//import spring.dto.TaskDTORequest;
+//import spring.dto.TaskDTOResponse;
+import spring.dto.UsersDTORequest;
+import spring.dto.UsersDTOResponse;
+//import com.dto.UserDTOResponse;s
+//import spring.entity.Task;
 
 public interface Services {
 	
-	UserDTOResponse addUser(UserDTORequest dto);
+	UsersDTOResponse addUser(UsersDTORequest dto);
 	boolean signin(String username, String password);
 	boolean deleteUser(String username, String password);
-	UserDTOResponse updatePassword(String username, String password, String newpassword);
-	UserDTOResponse logout();
+	UsersDTOResponse updatePassword(String username, String password, String newpassword);
+	UsersDTOResponse logout();
+	UsersDTOResponse getUserById(int id);
+	
+	boolean createTask(TasksDTORequest task, String task_type);
+	   
+	 List<TasksDTOResponse> getAllTasks() ;
+	    
+	 List<TasksDTOResponse> getTasksByCustomerId(int id);
+	 
+	 List<BidsDTOResponse> getBidsByTaskId(int task_id);
+	    
+//	 List<TaskDTOResponse> getTasksByCategory(String category);
+//	 
+//	 List<TaskDTOResponse> getTaskByUsername(String Username);
 }

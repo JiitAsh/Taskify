@@ -1,10 +1,12 @@
 package spring.dto;
 
+
 import lombok.Data;
 import spring.entity.Category;
 
+
 @Data
-public class UserDTOResponse {
+public class UsersDTORequest {
 
 	private int id;
 	private String firstname;
@@ -13,27 +15,15 @@ public class UserDTOResponse {
 	private String phoneno;
 	private String password;
 	private String email;
-	private Category category;
-	private boolean deleteflag = false;
-	private String message;
+	private Category category;	
+	private int deleteflag = 0;
 	
-	
-	public String getMessage() {
-		return message;
-	}
-
-	public void setMessage(String message) {
-		this.message = message;
-	}
-
 	public int getId() {
 		return id;
 	}
-	
-	public void setId(int Id) {
-		this.id = Id;
+	public void setId(int id) {
+		this.id = id;
 	}
-	
 	public String getFirstname() {
 		return firstname;
 	}
@@ -76,18 +66,16 @@ public class UserDTOResponse {
 	public void setCategory(Category category) {
 		this.category = category;
 	}
-	public boolean isDeleteflag() {
+	public int isDeleteflag() {
 		return deleteflag;
 	}
 	public void setDeleteflag(boolean deleteflag) {
-		this.deleteflag = deleteflag;
+		this.deleteflag = 0;
 	}
-
-	public UserDTOResponse() {}
-
-	public UserDTOResponse(String firstname, String lastname, String username, String phoneno, String password,
-			String email, Category category, boolean deleteflag) {
-		super();
+		
+	public UsersDTORequest(String firstname, String lastname, String username, String phoneno, String password,
+			String email, Category category) {
+		
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.username = username;
@@ -95,18 +83,17 @@ public class UserDTOResponse {
 		this.password = password;
 		this.email = email;
 		this.category = category;
-		this.deleteflag = deleteflag;
+		this.deleteflag = 0;
 	}
-
+	
+	public UsersDTORequest() {
+		this.deleteflag = 0;
+	}
+	
 	@Override
 	public String toString() {
-		return "UserDTOResponse [id=" + id + ", firstname=" + firstname + ", lastname=" + lastname + ", username="
+		return "UserDTORequest [id=" + id + ", firstname=" + firstname + ", lastname=" + lastname + ", username="
 				+ username + ", phoneno=" + phoneno + ", password=" + password + ", email=" + email + ", category="
 				+ category + ", deleteflag=" + deleteflag + "]";
-	}
-	
-	
-	
-	
-	
+	}	
 }

@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 
 import spring.entity.UsersTable;
 @Repository
-public interface Repo extends JpaRepository<UsersTable,Integer>{
+public interface UsersRepo extends JpaRepository<UsersTable,Integer>{
 	Optional<UsersTable> findByUsername(String username);
 }
