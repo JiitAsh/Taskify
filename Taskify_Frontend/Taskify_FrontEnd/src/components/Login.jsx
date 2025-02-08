@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import "./Login.css"; // Import CSS for styling
+import { UserContext } from "../UserContext"; // Import Context
+import "./Login.css";
 
 const Login = () => {
   const navigate = useNavigate();
+  const { setUsername } = useContext(UserContext); // Access Context API
 
-  // State for login credentials
   const [credentials, setCredentials] = useState({
     username: "",
     password: "",
@@ -33,10 +34,10 @@ const Login = () => {
       );
 
       if (res.data === true) {
-        // Assuming backend returns true for successful login
+        setUsername(credentials.username); // Store username in context
         localStorage.setItem("token", "someAuthToken"); // Store auth token
         alert("Login successful!");
-        navigate("/dashboard", { state: { username: credentials.username } });
+        navigate("/dashboard");
       } else {
         alert("Invalid Username or Password! Please try again.");
       }

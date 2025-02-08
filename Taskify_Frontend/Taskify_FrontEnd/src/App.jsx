@@ -7,9 +7,21 @@ import UpdateUser from "./components/UpdateUser";
 import DeleteUser from "./components/DeleteUser";
 import Logout from "./components/Logout";
 import Dashboard from "./components/Dashboard";
-
+import AllTasks from "./serviceComponents/AllTasks";
+import GetUserById from "./serviceComponents/GetUserById";
+import GetBiddersByTaskId from './serviceComponents/GetBiddersByTaskId'
+import { UserProvider } from "./UserContext";
+import CreateTask from "./serviceComponents/CreateTask";
+import Notifications from "./serviceComponents/Notifications";
+import CreateNewBid from "./serviceComponents/createNewBid";
 const App = () => {
+
+  // const  getUserId=()=>{
+
+  // }
   return (
+    <div>
+       <UserProvider>
     <Router>
       <Routes>
         <Route path="/" element={<Navigate to="/home" />} />  {/* Redirect to Home */}
@@ -20,8 +32,17 @@ const App = () => {
         <Route path="/update" element={<UpdateUser />} />
         <Route path="/delete" element={<DeleteUser />} />
         <Route path="/logout" element={<Logout />} />
-      </Routes>
-    </Router>
+      <Route path="/login" element={<Login />} />
+      <Route path="/dashboard" element={<Dashboard />} />
+       </Routes>
+     </Router>
+    {/* // <GetUserById user_id={1}/> */}
+    {/* // <GetBiddersByTaskId task_id={101}/> */}
+      <AllTasks />
+      {/* <CreateTask id={2}/> */}
+      {/* < Notifications user_id={1}/> */}
+      </UserProvider>
+      </div>
   );
 };
 
