@@ -37,4 +37,5 @@ public interface Services {
 
 	List<TasksDTOResponse> getAllTasksForNotifications(int id);
 
+	boolean chooseBid(int bid_id);
 }

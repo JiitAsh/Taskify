@@ -99,4 +99,9 @@ public class Controller implements ControllerInteface {
 		return service.createBid(bidDto, username);
 	}
 
+	@PutMapping("/choosebid/{bid_id}")
+	public boolean chooseBid(@PathVariable int bid_id) {
+		return service.chooseBid(bid_id);
+	}
+
 }

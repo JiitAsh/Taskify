@@ -222,4 +222,15 @@ public class ServicesImplementation implements Services {
 		return true;
 	}
 
+
+	@Override
+	public boolean chooseBid(int bid_id) {
+		Optional<BidTable> optBid=bid_repo.findById(bid_id);
+		if(optBid.isPresent()) {
+			BidTable bid=optBid.get();
+			bid.setIsAccepted(1);
+			bid_repo.save(bid);
+		}
+		return true;
+	}
 }

@@ -36,4 +36,5 @@ public interface ControllerInteface {
 
 	public boolean createBid(BidsDTORequest bidDto, String username);
 
+	public boolean chooseBid(int bid_id);
 }
