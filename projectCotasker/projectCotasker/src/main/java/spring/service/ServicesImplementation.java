@@ -150,9 +150,11 @@ public class ServicesImplementation implements Services {
 	}
 
 	@Override
-	public boolean createTask(TasksDTORequest task, String task_type) {
+	public boolean createTask(TasksDTORequest task, String task_type, String username) {
 		TasksTable new_task = new TasksTable();
 		BeanUtils.copyProperties(task, new_task);
+		UsersDTOResponse user = getUserByUsername(username);
+		new_task.getUser().setId(user.getId());
 		task_repo.save(new_task);
 		return true;
 	}
@@ -197,7 +199,7 @@ public class ServicesImplementation implements Services {
 
 				UsersDTOResponse user = getUserById(bid.getBidder());
 				String userName = user.getUsername();
-				BidsDTOResponse dto = new BidsDTOResponse(bid.getBidder(), bid.getAmount(), bid.getProposal(),
+				BidsDTOResponse dto = new BidsDTOResponse(bid.getBid_id(), bid.getBidder(), bid.getAmount(), bid.getProposal(),
 						bid.getEstimatedHours(), bid.getIsAccepted(), userName);
 				bidsDTOList.add(dto);
 			}
@@ -222,4 +224,15 @@ public class ServicesImplementation implements Services {
 		return true;
 	}
 
+
+	@Override
+	public boolean chooseBid(int bid_id) {
+		Optional<BidTable> optBid=bid_repo.findById(bid_id);
+		if(optBid.isPresent()) {
+			BidTable bid=optBid.get();
+			bid.setIsAccepted(1);
+			bid_repo.save(bid);
+		}
+		return true;
+	}
 }

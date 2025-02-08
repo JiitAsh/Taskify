@@ -69,9 +69,9 @@ public class Controller implements ControllerInteface {
 		return ResponseEntity.ok(service.getUserById(id));
 	}
 
-	@PostMapping("/CreateTask") // ToDo -- add category in pathVariable
-	public boolean createTask(@RequestBody TasksDTORequest task) {
-		return service.createTask(task, "OPEN");
+	@PostMapping("/CreateTask/{username}") // ToDo -- add category in pathVariable
+	public boolean createTask(@RequestBody TasksDTORequest task, @PathVariable String username) {
+		return service.createTask(task, "OPEN", username);
 	}
 
 	@GetMapping("/BrowseTasks")
@@ -97,6 +97,11 @@ public class Controller implements ControllerInteface {
 	@PostMapping("/CreateBid/{username}")
 	public boolean createBid(@RequestBody BidsDTORequest bidDto, @PathVariable String username) {
 		return service.createBid(bidDto, username);
+	}
+
+	@PutMapping("/choosebid/{bid_id}")
+	public boolean chooseBid(@PathVariable int bid_id) {
+		return service.chooseBid(bid_id);
 	}
 
 }
