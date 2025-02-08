@@ -79,9 +79,9 @@ public class Controller implements ControllerInteface {
 		return ResponseEntity.ok(service.getAllTasks());
 	}
 
-	@GetMapping("/BrowseTasks/{id}")
-	public ResponseEntity<List<TasksDTOResponse>> getTaskByCategory(@PathVariable int id) {
-		return ResponseEntity.ok(service.getTasksByCustomerId(id));
+	@GetMapping("/BrowseTasks/{username}")
+	public ResponseEntity<List<TasksDTOResponse>> getTaskByCategory(@PathVariable String username) {
+		return ResponseEntity.ok(service.getTasksByCustomerId(username));
 	}
 
 	@GetMapping("/MyTask/{task_id}") // to get all bidders
@@ -89,9 +89,9 @@ public class Controller implements ControllerInteface {
 		return ResponseEntity.ok(service.getBidsByTaskId(task_id));
 	}
 
-	@GetMapping("/Notifications/{id}")
-	public ResponseEntity<List<TasksDTOResponse>> getTasksForNotifications(@PathVariable int id) {
-		return ResponseEntity.ok(service.getAllTasksForNotifications(id));
+	@GetMapping("/Notifications/{username}")
+	public ResponseEntity<List<TasksDTOResponse>> getTasksForNotifications(@PathVariable String username) {
+		return ResponseEntity.ok(service.getAllTasksForNotifications(username));
 	}
 	
 	@PostMapping("/CreateBid/{username}")

@@ -45,7 +45,8 @@ const App = () => {
         {/* // <GetBiddersByTaskId task_id={101}/> */}
         {/* <AllTasks /> */}
         {/* <CreateTask id={2}/> */}
-        {/* < Notifications user_id={1}/> */}
+        {/* < Notifications /> */}
+        {/* <MyTasks/> */}
       </UserProvider>
     </div>
   );

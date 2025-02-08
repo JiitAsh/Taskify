@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import axios from "axios";
 import CreateNewBid from './createNewBid';
-const Notifications = ({user_id}) => {
+import { UserContext } from '../UserContext'; // Import the custom hook
+
+const Notifications = () => {
+    const { username } = useContext(UserContext);
     const [tasks, SetTasks]=useState([]);
     useEffect(()=>{
-        axios.get( `http://localhost:8080/Api/User/Notifications/${user_id}`)
+        axios.get( `http://localhost:8080/Api/User/Notifications/${username}`)
         .then(response=>{
             SetTasks(response.data);
         })
