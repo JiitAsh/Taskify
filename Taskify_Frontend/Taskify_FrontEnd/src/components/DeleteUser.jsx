@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import "../styles/DeleteUser.css"; // Import CSS file
 
 const DeleteUser = () => {
   const [user, setUser] = useState({
@@ -17,20 +18,20 @@ const DeleteUser = () => {
 
     try {
       const res = await axios.put(
-        "http://localhost:8080/Api/User/Delete", // Ensure this URL is correct
-        null, // No request body, only params
+        "http://localhost:8080/Api/User/Delete",
+        null,
         {
           params: {
-            username: user.username,  // Send username as query parameter
-            password: user.password,  // Send password as query parameter
+            username: user.username,
+            password: user.password,
           },
           headers: {
-            Authorization: `Bearer ${token}`, // Add token to headers for authentication
+            Authorization: `Bearer ${token}`,
           },
         }
       );
 
-      alert(res.data); // Show success message
+      alert(res.data);
     } catch (err) {
       console.error("Delete Error:", err);
       alert("Failed to delete user! Check username and password.");
@@ -45,6 +46,7 @@ const DeleteUser = () => {
           type="text"
           name="username"
           placeholder="Username"
+          value={user.username}
           onChange={handleChange}
           required
         />
@@ -52,6 +54,7 @@ const DeleteUser = () => {
           type="password"
           name="password"
           placeholder="Password"
+          value={user.password}
           onChange={handleChange}
           required
         />

@@ -1,0 +1,75 @@
+/* AllTasks.css */
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 1.5rem;
+  }
+  
+  .heading {
+    font-size: 1.75rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  
+  .task-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .task-card {
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 1rem;
+    border: 1px solid #e5e7eb;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .task-card:hover {
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .task-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+  
+  .task-details {
+    color: #4b5563;
+    font-size: 0.95rem;
+    margin-bottom: 0.25rem;
+  }
+  
+  .task-status {
+    font-weight: 500;
+  }
+  
+  .status-open {
+    color: green;
+  }
+  
+  .status-closed {
+    color: red;
+  }
+  
+  .bid-button {
+    margin-top: 0.75rem;
+    width: 100%;
+    background-color: #2563eb;
+    color: white;
+    padding: 0.5rem 0;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s;
+  }
+  
+  .bid-button:hover {
+    background-color: #1e40af;
+  }
+  

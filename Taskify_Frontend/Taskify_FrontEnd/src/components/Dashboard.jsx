@@ -1,22 +1,24 @@
 import React from "react";
-import { Link } from "react-router-dom";
-const Dashboard = ()     => {
-    const username = location.state?.username || "Guest"; 
+import { Link, useLocation } from "react-router-dom";
+import "../styles/Dashboard.css"; // Import the CSS file
+
+const Dashboard = () => {
+  const location = useLocation();
+  const username = location.state?.username || "Guest";
+
   return (
-    <div className="container text-center mt-5">
-      <h1>Welcome, {username}</h1>
-      <p>Select an option below:</p>
-      
-      <div className="d-flex flex-column align-items-center gap-3 mt-4">
-        <Link to="/update" className="btn btn-primary">
+    <div className="dashboard-container">
+      <h1 className="dashboard-title">Welcome, {username}</h1>
+      <p className="dashboard-text">Select an option below:</p>
+
+      <div className="dashboard-buttons">
+        <Link to="/update" className="update-btn">
           Update User
         </Link>
-        <br />
-        <Link to="/delete" className="btn btn-danger">
+        <Link to="/delete" className="delete-btn">
           Delete User
         </Link>
-        <br />
-        <Link to="/logout" className="btn btn-secondary">
+        <Link to="/logout" className="logout-btn">
           Logout
         </Link>
       </div>

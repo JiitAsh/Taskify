@@ -1,0 +1,126 @@
+/* Main container for the registration page */
+.register-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-image: url('../assets/images/movingWallpaper.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 20px;
+  text-align: center;
+  overflow-y: auto;
+}
+
+/* Register Form Container */
+.register-form-container {
+  background: rgba(255, 255, 255, 0.9); /* Transparent background */
+  padding: 30px;
+  border-radius: 15px; /* Rounded corners */
+  width: 100%;
+  max-width: 600px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  overflow-y: auto; /* Allow scrolling if needed */
+}
+
+/* Logo Container */
+.logo-container {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.logo {
+  width: 100px; /* Adjust logo size */
+  margin-bottom: 10px;
+}
+
+.logo-text {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #007bff;
+  margin: 0;
+}
+
+/* Heading Styling */
+h2 {
+  color: #007bff;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+}
+
+/* Error message styling */
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+/* Form fields */
+.form-group {
+  margin-bottom: 15px;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+input:focus,
+select:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Button styling */
+button {
+  padding: 12px;
+  width: 100%;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+button:active {
+  background-color: #003d7a;
+}
+
+/* Responsive Design for smaller screens */
+@media (max-width: 600px) {
+  .logo {
+    width: 80px;
+  }
+
+  .logo-text {
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  .register-form-container {
+    padding: 20px;
+    margin-top: 20px;
+  }
+
+  input,
+  select,
+  button {
+    padding: 10px;
+    font-size: 14px;
+  }
+}

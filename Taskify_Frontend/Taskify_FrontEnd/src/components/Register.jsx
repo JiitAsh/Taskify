@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import "./Register.css";
+import "../styles/Register.css"; // Import updated styles
+import logo from "../assets/images/favicon-taskify.png";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -59,56 +60,77 @@ const Register = () => {
   };
 
   return (
-    <div className="register-container">
-      <h2>Register</h2>
-      {error && <p className="error">{error}</p>}
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="firstname"
-          placeholder="First Name"
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          name="lastname"
-          placeholder="Last Name"
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          name="username"
-          placeholder="Username"
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          name="phoneno"
-          placeholder="Phone Number"
-          onChange={handleChange}
-        />
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          onChange={handleChange}
-        />
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          onChange={handleChange}
-        />
-
-        <label>Category:</label>
-        <select name="category" value={user.category} onChange={handleChange}>
-          <option value="CUSTOMER">Customer</option>
-          <option value="TASKER">Tasker</option>
-          <option value="BOTH">Both</option>
-        </select>
-
-        <button type="submit">Register</button>
-      </form>
+    <div className="register-page">
+      <div className="register-form-container">
+        <div className="logo-container">
+          <img src={logo} alt="Logo" className="logo" />
+          <h1 className="logo-text">Taskify</h1>
+        </div>
+        <h2>Begin your journey</h2>
+        {error && <p className="error-message">{error}</p>}
+        <form onSubmit={handleSubmit}>
+          <div className="form-group">
+            <input
+              type="text"
+              name="firstname"
+              placeholder="First Name"
+              onChange={handleChange}
+            />
+          </div>
+          <div className="form-group">
+            <input
+              type="text"
+              name="lastname"
+              placeholder="Last Name"
+              onChange={handleChange}
+            />
+          </div>
+          <div className="form-group">
+            <input
+              type="text"
+              name="username"
+              placeholder="Username"
+              onChange={handleChange}
+            />
+          </div>
+          <div className="form-group">
+            <input
+              type="text"
+              name="phoneno"
+              placeholder="Phone Number"
+              onChange={handleChange}
+            />
+          </div>
+          <div className="form-group">
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              onChange={handleChange}
+            />
+          </div>
+          <div className="form-group">
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              onChange={handleChange}
+            />
+          </div>
+          <div className="form-group">
+            <select
+              name="category"
+              value={user.category}
+              onChange={handleChange}
+            >
+              <option value="CUSTOMER">Customer</option>
+              <option value="TASKER">Tasker</option>
+              <option value="BOTH">Both</option>
+            </select>
+          </div>
+          <button type="submit">Register</button>
+        </form>
+      </div>
     </div>
   );
 };

@@ -1,0 +1,24 @@
+/* Logout.css */
+
+.logout-button {
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  background-color: #dc3545; /* Red theme for logout */
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out, transform 0.2s;
+  display: inline-block;
+  text-align: center;
+}
+
+.logout-button:hover {
+  background-color: #a71d2a;
+  transform: scale(1.05);
+}
+
+.logout-button:active {
+  transform: scale(0.95);
+}

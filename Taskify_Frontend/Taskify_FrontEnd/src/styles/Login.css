@@ -1,0 +1,101 @@
+/* Container for Login Screen */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url('../assets/images/movingWallpaper.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    position: relative;
+  }
+  
+  .login-box {
+    background: rgba(255, 255, 255, 0); /* Fully transparent background */
+    padding: 30px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .logo {
+    margin-bottom: 20px;
+  }
+  
+  .logo-img {
+    width: 80px; /* Adjust size of logo */
+    height: 80px;
+    margin-bottom: 10px;
+  }
+  
+  .logo-name {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #007bff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  input {
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+  }
+  
+  input:focus {
+    border-color: #007bff;
+  }
+  
+  .login-btn {
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .login-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  .login-btn:active {
+    background-color: #003d7a;
+  }
+  
+  /* SignUp Link Styling */
+  .signup-link {
+    margin-top: 20px;
+  }
+  
+  .signup-btn {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .signup-btn:hover {
+    text-decoration: underline;
+  }
+  
+  /* New User? text now black */
+  .signup-link p {
+    color: black; /* Ensures the 'New User?' text is black */
+    font-weight: normal;
+    margin-bottom: 10px;
+  }
+  

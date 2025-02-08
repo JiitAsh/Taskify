@@ -1,8 +1,9 @@
 import React, { useState, useContext } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../UserContext"; // Import Context
-import "./Login.css";
+import "../styles/Login.css";
+import logo from "../assets/images/favicon-taskify.png";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -50,7 +51,10 @@ const Login = () => {
   return (
     <div className="login-container">
       <div className="login-box">
-        <h2>Login</h2>
+        <div className="logo">
+          <img src={logo} alt="Logo" className="logo-img" />
+          <h2 className="logo-name">Taskify</h2>
+        </div>
         <form onSubmit={handleSubmit}>
           <input
             type="text"
@@ -70,6 +74,14 @@ const Login = () => {
             Login
           </button>
         </form>
+        <div className="signup-link">
+          <p>
+            New user?{" "}
+            <Link to="/Register" className="signup-btn">
+              Sign Up
+            </Link>
+          </p>
+        </div>
       </div>
     </div>
   );
