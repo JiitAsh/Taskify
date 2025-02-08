@@ -38,9 +38,9 @@ const App = () => {
        </Routes>
      </Router>
     {/* // <GetUserById user_id={1}/> */}
-    {/* // <GetBiddersByTaskId task_id={101}/> */}
-      <AllTasks />
-      <AllServices/>
+    <GetBiddersByTaskId task_id={3}/>
+      {/* <AllTasks /> */}
+      {/* <AllServices/> */}
       {/* < Notifications user_id={1}/> */}
       </UserProvider>
       </div>

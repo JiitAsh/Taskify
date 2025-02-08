@@ -20,9 +20,10 @@ public class BidsDTOResponse {
 
 	}
 
-	public BidsDTOResponse(int bidder, Double amount, String proposal, int estimatedHours, int isAccepted,
+	public BidsDTOResponse(int bid_id, int bidder, Double amount, String proposal, int estimatedHours, int isAccepted,
 			String username) {
-
+		
+		this.bid_id=bid_id;
 		this.bidder = bidder;
 		this.amount = amount;
 		this.proposal = proposal;

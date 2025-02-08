@@ -199,7 +199,7 @@ public class ServicesImplementation implements Services {
 
 				UsersDTOResponse user = getUserById(bid.getBidder());
 				String userName = user.getUsername();
-				BidsDTOResponse dto = new BidsDTOResponse(bid.getBidder(), bid.getAmount(), bid.getProposal(),
+				BidsDTOResponse dto = new BidsDTOResponse(bid.getBid_id(), bid.getBidder(), bid.getAmount(), bid.getProposal(),
 						bid.getEstimatedHours(), bid.getIsAccepted(), userName);
 				bidsDTOList.add(dto);
 			}
