@@ -24,7 +24,7 @@ public interface ControllerInteface {
 
 	public ResponseEntity<UsersDTOResponse> getUserById(int id);
 
-	public boolean createTask(TasksDTORequest task);
+	public boolean createTask(TasksDTORequest task, String username);
 
 	public ResponseEntity<List<TasksDTOResponse>> getallTask();
 

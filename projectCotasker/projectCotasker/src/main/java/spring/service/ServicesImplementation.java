@@ -150,9 +150,11 @@ public class ServicesImplementation implements Services {
 	}
 
 	@Override
-	public boolean createTask(TasksDTORequest task, String task_type) {
+	public boolean createTask(TasksDTORequest task, String task_type, String username) {
 		TasksTable new_task = new TasksTable();
 		BeanUtils.copyProperties(task, new_task);
+		UsersDTOResponse user = getUserByUsername(username);
+		new_task.getUser().setId(user.getId());
 		task_repo.save(new_task);
 		return true;
 	}

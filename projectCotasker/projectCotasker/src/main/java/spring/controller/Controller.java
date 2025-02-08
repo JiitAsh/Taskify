@@ -69,9 +69,9 @@ public class Controller implements ControllerInteface {
 		return ResponseEntity.ok(service.getUserById(id));
 	}
 
-	@PostMapping("/CreateTask") // ToDo -- add category in pathVariable
-	public boolean createTask(@RequestBody TasksDTORequest task) {
-		return service.createTask(task, "OPEN");
+	@PostMapping("/CreateTask/{username}") // ToDo -- add category in pathVariable
+	public boolean createTask(@RequestBody TasksDTORequest task, @PathVariable String username) {
+		return service.createTask(task, "OPEN", username);
 	}
 
 	@GetMapping("/BrowseTasks")

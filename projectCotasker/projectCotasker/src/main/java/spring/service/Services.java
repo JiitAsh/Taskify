@@ -25,7 +25,7 @@ public interface Services {
 
 	UsersDTOResponse getUserByUsername(String username);
 
-	boolean createTask(TasksDTORequest task, String task_type);
+	boolean createTask(TasksDTORequest task, String task_type, String username);
 
 	List<TasksDTOResponse> getAllTasks();
 

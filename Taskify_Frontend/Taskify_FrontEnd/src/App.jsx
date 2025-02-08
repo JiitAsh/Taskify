@@ -14,6 +14,7 @@ import { UserProvider } from "./UserContext";
 import CreateTask from "./serviceComponents/CreateTask";
 import Notifications from "./serviceComponents/Notifications";
 import CreateNewBid from "./serviceComponents/createNewBid";
+import AllServices from "./services/AllServices";
 const App = () => {
 
   // const  getUserId=()=>{
@@ -39,7 +40,7 @@ const App = () => {
     {/* // <GetUserById user_id={1}/> */}
     {/* // <GetBiddersByTaskId task_id={101}/> */}
       <AllTasks />
-      {/* <CreateTask id={2}/> */}
+      <AllServices/>
       {/* < Notifications user_id={1}/> */}
       </UserProvider>
       </div>
