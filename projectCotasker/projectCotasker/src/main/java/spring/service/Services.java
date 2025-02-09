@@ -29,13 +29,13 @@ public interface Services {
 
 	List<TasksDTOResponse> getAllTasks();
 
-	List<TasksDTOResponse> getTasksByCustomerId(int id);
+	List<TasksDTOResponse> getTasksByCustomerId(String username);
 
 	List<BidsDTOResponse> getBidsByTaskId(int task_id);
 
 	boolean createBid(BidsDTORequest bid, String username);
 
-	List<TasksDTOResponse> getAllTasksForNotifications(int id);
+	List<TasksDTOResponse> getAllTasksForNotifications(String username);
 
 	boolean chooseBid(int bid_id);
 }

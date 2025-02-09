@@ -28,11 +28,11 @@ public interface ControllerInteface {
 
 	public ResponseEntity<List<TasksDTOResponse>> getallTask();
 
-	public ResponseEntity<List<TasksDTOResponse>> getTaskByCategory(int id);
+	public ResponseEntity<List<TasksDTOResponse>> getTaskByCategory(String username);
 
 	public ResponseEntity<List<BidsDTOResponse>> getAllBiddersByTaskId(int task_id);
 
-	public ResponseEntity<List<TasksDTOResponse>> getTasksForNotifications(int id);
+	public ResponseEntity<List<TasksDTOResponse>> getTasksForNotifications(String username);
 
 	public boolean createBid(BidsDTORequest bidDto, String username);
 

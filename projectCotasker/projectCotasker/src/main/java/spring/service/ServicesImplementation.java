@@ -175,7 +175,9 @@ public class ServicesImplementation implements Services {
 	}
 
 	@Override
-	public List<TasksDTOResponse> getTasksByCustomerId(int id) {
+	public List<TasksDTOResponse> getTasksByCustomerId(String username) {
+		UsersDTOResponse user = getUserByUsername(username);
+		int id = user.getId();
 		List<TasksTable> allTasks = task_repo.findAll();
 		ArrayList<TasksDTOResponse> taskDtoList = new ArrayList<>();
 		for (TasksTable task : allTasks) {
@@ -208,8 +210,9 @@ public class ServicesImplementation implements Services {
 	}
 
 	@Override
-	public List<TasksDTOResponse> getAllTasksForNotifications(int id) {
-		List<TasksDTOResponse> allTasks = getTasksByCustomerId(id);
+	public List<TasksDTOResponse> getAllTasksForNotifications(String username) {
+		
+		List<TasksDTOResponse> allTasks = getTasksByCustomerId(username);
 		Collections.sort(allTasks, Comparator.comparing(TasksDTOResponse::getUpdatedAt).reversed());
 		return allTasks;
 	}
