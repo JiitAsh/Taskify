@@ -1,0 +1,69 @@
+/* Container Styling */
+.bidder-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+  /* Title */
+  .bidder-container h2 {
+    color: #007bff;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+  }
+  
+  /* List Styling */
+  .bidder-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .bidder-list li {
+    background: #f9f9f9;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #ddd;
+    transition: 0.3s;
+  }
+  
+  .bidder-list li:hover {
+    background: #f0f8ff;
+  }
+  
+  /* Button Styling */
+  .select-bid-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: 0.3s;
+  }
+  
+  .select-bid-btn:hover {
+    background-color: #218838;
+  }
+  
+  .selected-bid-btn {
+    background-color: #ffc107;
+    color: #333;
+    cursor: default;
+  }
+  
+  /* No Bidders Found */
+  .no-bidders {
+    font-size: 1rem;
+    color: #666;
+    margin-top: 10px;
+  }
+  
