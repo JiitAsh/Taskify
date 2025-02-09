@@ -1,55 +1,91 @@
-/* DeleteUser.css */
-
+/* Main container for the delete account page */
 .delete-container {
-    max-width: 400px;
-    margin: 50px auto;
-    padding: 2rem;
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-  }
-  
-  .delete-container h2 {
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 20px;
-  }
-  
-  .delete-container form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
-  
-  .delete-container input {
-    width: 100%;
-    padding: 10px;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    transition: border 0.3s;
-  }
-  
-  .delete-container input:focus {
-    border-color: #dc3545;
-    outline: none;
-  }
-  
-  .delete-container button {
-    padding: 12px;
-    font-size: 1rem;
-    font-weight: bold;
-    color: white;
-    background-color: #dc3545;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background 0.3s ease-in-out;
-  }
-  
-  .delete-container button:hover {
-    background-color: #a71d2a;
-  }
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-image: url('../assets/images/movingWallpaper.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Delete Box Container */
+.delete-box {
+  background: rgba(255, 255, 255, 0.9); /* Transparent background */
+  padding: 30px;
+  border-radius: 15px; /* Rounded corners */
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column; /* Stack content vertically */
+  justify-content: center; /* Vertically center the content */
+  align-items: center; /* Horizontally center content */
+}
+
+/* Logo Container */
+.logo {
+  display: flex;
+  justify-content: center;  /* Center the logo and text */
+  align-items: center;
+  flex-direction: column;  /* Stack logo and text vertically */
+  margin-bottom: 20px;
+}
+
+.logo-img {
+  width: 80px;  /* Adjust logo size */
+  height: 80px;
+  margin-bottom: 10px;
+}
+
+.logo-name {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #007bff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 0;
+}
+
+/* Heading Styling */
+h2 {
+  color: #007bff;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+}
+
+/* Form fields */
+input {
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none;
+}
+
+input:focus {
+  border-color: #007bff;
+}
+
+.delete-btn {
+  padding: 12px;
+  background-color: #ff4c4c;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.delete-btn:hover {
+  background-color: #d62c2c;
+}
+
+.delete-btn:active {
+  background-color: #a22222;
+}

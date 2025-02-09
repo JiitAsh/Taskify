@@ -1,72 +1,89 @@
-/* Dashboard.css */
-
+/* Dashboard Main Container */
 .dashboard-container {
-    max-width: 500px;
-    margin: 50px auto;
-    padding: 2rem;
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-  }
-  
-  .dashboard-title {
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 10px;
-  }
-  
-  .dashboard-text {
-    font-size: 1rem;
-    color: #666;
-    margin-bottom: 20px;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+  font-family: 'Arial', sans-serif;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Dashboard Header */
+.dashboard-header {
+  margin-bottom: 30px;
+}
+
+.dashboard-title {
+  font-size: 36px;
+  font-weight: bold;
+  color: #007bff;
+}
+
+.dashboard-subtitle {
+  font-size: 18px;
+  color: #555;
+}
+
+/* Dashboard Buttons */
+.dashboard-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.dashboard-btn {
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+  border-radius: 8px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.my-tasks-btn { background-color: #007bff; }
+.all-tasks-btn { background-color: #28a745; }
+.update-user-btn { background-color: #ffc107; color: #333; }
+.delete-user-btn { background-color: #dc3545; }
+.logout-btn { background-color: #6c757d; }
+
+.dashboard-btn:hover {
+  opacity: 0.8;
+}
+
+/* Service Section */
+.service-heading {
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Card Container */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
   .dashboard-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+      flex-direction: column;
+      align-items: center;
   }
-  
-  .dashboard-buttons a {
-    text-decoration: none;
-    padding: 12px;
-    font-size: 1rem;
-    font-weight: 500;
-    border-radius: 6px;
-    transition: all 0.3s ease-in-out;
-    width: 100%;
-    text-align: center;
+
+  .card-container {
+      flex-direction: column;
+      align-items: center;
   }
-  
-  .update-btn {
-    background-color: #007bff;
-    color: white;
-    border: none;
-  }
-  
-  .update-btn:hover {
-    background-color: #0056b3;
-  }
-  
-  .delete-btn {
-    background-color: #dc3545;
-    color: white;
-    border: none;
-  }
-  
-  .delete-btn:hover {
-    background-color: #a71d2a;
-  }
-  
-  .logout-btn {
-    background-color: #6c757d;
-    color: white;
-    border: none;
-  }
-  
-  .logout-btn:hover {
-    background-color: #545b62;
-  }
+}
   

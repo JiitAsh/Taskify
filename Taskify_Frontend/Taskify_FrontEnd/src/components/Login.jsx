@@ -24,7 +24,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const res = await axios.post(
-        `http://localhost:8080/Api/User/Signin`,
+        `http://localhost:8080/Api/User/Signin`, // API endpoint for signin
         null,
         {
           params: {
@@ -36,9 +36,8 @@ const Login = () => {
 
       if (res.data === true) {
         setUsername(credentials.username); // Store username in context
-        localStorage.setItem("token", "someAuthToken"); // Store auth token
         alert("Login successful!");
-        navigate("/dashboard");
+        navigate("/dashboard"); // Redirect to the dashboard on successful login
       } else {
         alert("Invalid Username or Password! Please try again.");
       }

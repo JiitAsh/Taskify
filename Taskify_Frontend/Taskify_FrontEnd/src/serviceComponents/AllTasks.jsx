@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import CreateNewBid from "./createNewBid";
+import CreateNewBid from "./CreateNewBid";
 import "../servicestyle/AllTasks.css"; // Import the CSS file
 
 const AllTasks = () => {

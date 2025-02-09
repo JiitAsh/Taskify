@@ -25,11 +25,16 @@
 
 /* Logo Container */
 .logo-container {
+  display: flex;
+  justify-content: center;  /* Ensure logo container is centered */
+  align-items: center;      /* Vertically align content in the container */
   margin-bottom: 20px;
-  text-align: center;
 }
 
 .logo {
+  display: flex;
+  justify-content: center;  /* Center the logo image */
+  align-items: center;
   width: 100px; /* Adjust logo size */
   margin-bottom: 10px;
 }
@@ -39,6 +44,7 @@
   font-weight: 700;
   color: #007bff;
   margin: 0;
+  text-align: center;  /* Center the text if necessary */
 }
 
 /* Heading Styling */

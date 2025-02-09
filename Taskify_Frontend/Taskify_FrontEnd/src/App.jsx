@@ -18,7 +18,9 @@ import GetBiddersByTaskId from "./serviceComponents/GetBiddersByTaskId";
 import { UserProvider } from "./UserContext";
 import CreateTask from "./serviceComponents/CreateTask";
 import Notifications from "./serviceComponents/Notifications";
-import CreateNewBid from "./serviceComponents/createNewBid";
+import CreateNewBid from "./serviceComponents/CreateNewBid";
+import AllServices from "./services/AllServices";
+import MyTasks from "./serviceComponents/MyTasks";
 const App = () => {
   // const  getUserId=()=>{
 
@@ -39,6 +41,8 @@ const App = () => {
             <Route path="/logout" element={<Logout />} />
             <Route path="/login" element={<Login />} />
             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/dashboard/service" element={<AllServices />} />
+            <Route path="/my-tasks" element={<MyTasks />} />
           </Routes>
         </Router>
         {/* // <GetUserById user_id={1}/> */}

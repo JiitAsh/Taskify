@@ -1,32 +1,31 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "../styles/UpdateUser.css";
+import logo from "../assets/images/favicon-taskify.png"; // Add your logo path
 
 const UpdateUser = () => {
   const [user, setUser] = useState({
     username: "",
     password: "",
-    newpassword: "", // Added new password field
+    newpassword: "",
   });
 
-  // Handle input changes
   const handleChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
 
-  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const token = localStorage.getItem("token"); // Assuming authentication token is stored
+    const token = localStorage.getItem("token");
 
     try {
       await axios.put("http://localhost:8080/Api/User/UpdatePassword", null, {
         params: {
           username: user.username,
           password: user.password,
-          newpassword: user.newpassword, // Sending correct parameter
+          newpassword: user.newpassword,
         },
-        headers: { Authorization: `Bearer ${token}` }, // If authentication is required
+        headers: { Authorization: `Bearer ${token}` },
       });
 
       alert("Password updated successfully!");
@@ -38,31 +37,39 @@ const UpdateUser = () => {
 
   return (
     <div className="update-container">
-      <h2>Update Password</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="username"
-          placeholder="Username"
-          onChange={handleChange}
-          required
-        />
-        <input
-          type="password"
-          name="password"
-          placeholder="Current Password"
-          onChange={handleChange}
-          required
-        />
-        <input
-          type="password"
-          name="newpassword"
-          placeholder="New Password"
-          onChange={handleChange}
-          required
-        />
-        <button type="submit">Update Password</button>
-      </form>
+      <div className="update-box">
+        <div className="logo">
+          <img src={logo} alt="Taskify Logo" className="logo-img" />
+          <h1 className="logo-name">Taskify</h1>
+        </div>
+        <h2>Update Password</h2>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            name="username"
+            placeholder="Username"
+            onChange={handleChange}
+            required
+          />
+          <input
+            type="password"
+            name="password"
+            placeholder="Current Password"
+            onChange={handleChange}
+            required
+          />
+          <input
+            type="password"
+            name="newpassword"
+            placeholder="New Password"
+            onChange={handleChange}
+            required
+          />
+          <button type="submit" className="update-btn">
+            Update Password
+          </button>
+        </form>
+      </div>
     </div>
   );
 };
