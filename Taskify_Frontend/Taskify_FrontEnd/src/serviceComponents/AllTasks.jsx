@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import CreateNewBid from "./CreateNewBid";
-import "../servicestyle/AllTasks.css"; // Import the CSS file
+import "../servicestyle/AllTasks.css"; // Updated CSS file
 
 const AllTasks = () => {
   const [tasks, setTasks] = useState([]);
@@ -26,44 +26,43 @@ const AllTasks = () => {
     <div className="container">
       <h2 className="heading">Task List</h2>
 
-      <div className="task-grid">
-        {tasks.map((task) => (
-          <div key={task.task_id} className="task-card">
-            <h3 className="task-title">Task ID: {task.task_id}</h3>
-            <p className="task-details">
-              <strong>Budget:</strong> ₹{task.budget}
-            </p>
-            <p className="task-details">
-              <strong>Location:</strong> {task.location}
-            </p>
-            <p className="task-details">
-              <strong>Created At:</strong>{" "}
-              {new Date(task.createdAt).toLocaleString()}
-            </p>
-            <p className="task-details">
-              <strong>Status:</strong>{" "}
-              <span
-                className={`task-status ${
-                  task.status === "Open" ? "status-open" : "status-closed"
-                }`}
-              >
-                {task.status}
-              </span>
-            </p>
-            <p className="task-details">
-              <strong>Last Updated:</strong>{" "}
-              {new Date(task.updatedAt).toLocaleString()}
-            </p>
-
-            <button
-              className="bid-button"
-              onClick={() => createBid(task.task_id)}
-            >
-              Bid for the Task
-            </button>
-          </div>
-        ))}
-      </div>
+      <table className="task-table">
+        <thead>
+          <tr>
+            <th>Task Title</th>
+            <th>Task Description</th>
+            <th>Task Category</th>
+            <th>Location</th>
+            <th>Budget (₹)</th>
+            <th>Scheduled Date</th>
+            <th>Must Haves</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {tasks.map((task) => (
+            <tr key={task.task_id}>
+              <td>{task.task_title}</td>
+              <td>{task.task_desc}</td>
+              <td>
+                {task.task_category === "remote" ? "Remote" : "In-Person"}
+              </td>
+              <td>{task.location}</td>
+              <td>{task.budget}</td>
+              <td>{new Date(task.scheduledDate).toLocaleDateString()}</td>
+              <td>{task.mustHaves}</td>
+              <td>
+                <button
+                  className="bid-button"
+                  onClick={() => createBid(task.task_id)}
+                >
+                  Bid for Task
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
 
       {selectedTask && <CreateNewBid id={selectedTask} />}
     </div>

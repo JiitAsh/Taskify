@@ -1,75 +1,78 @@
-/* AllTasks.css */
-
+/* Container styling */
 .container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 1.5rem;
+  max-width: 90%;
+  margin: 20px auto;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Heading styling */
+.heading {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #007bff;
+  margin-bottom: 20px;
+}
+
+/* Table styling */
+.task-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Table header */
+.task-table th {
+  background-color: #007bff;
+  color: white;
+  padding: 12px;
+  font-size: 1rem;
+  text-align: left;
+  white-space: nowrap;
+}
+
+/* Table rows */
+.task-table td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  font-size: 1rem;
+  color: #333;
+  text-align: left;
+}
+
+/* Alternating row colors */
+.task-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* Bid Button */
+.bid-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.bid-button:hover {
+  background-color: #0056b3;
+}
+
+.bid-button:active {
+  background-color: #003d7a;
+}
+
+/* Responsive Table */
+@media (max-width: 768px) {
+  .task-table {
+    display: block;
+    overflow-x: auto;
   }
-  
-  .heading {
-    font-size: 1.75rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-    text-align: center;
-  }
-  
-  .task-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-  }
-  
-  .task-card {
-    background-color: white;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    padding: 1rem;
-    border: 1px solid #e5e7eb;
-    transition: all 0.3s ease-in-out;
-  }
-  
-  .task-card:hover {
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
-  }
-  
-  .task-title {
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-  }
-  
-  .task-details {
-    color: #4b5563;
-    font-size: 0.95rem;
-    margin-bottom: 0.25rem;
-  }
-  
-  .task-status {
-    font-weight: 500;
-  }
-  
-  .status-open {
-    color: green;
-  }
-  
-  .status-closed {
-    color: red;
-  }
-  
-  .bid-button {
-    margin-top: 0.75rem;
-    width: 100%;
-    background-color: #2563eb;
-    color: white;
-    padding: 0.5rem 0;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background 0.3s;
-  }
-  
-  .bid-button:hover {
-    background-color: #1e40af;
-  }
-  
+}
