@@ -46,7 +46,7 @@ public class ServicesImplementation implements Services {
 
 		UsersDTOResponse responsedto = new UsersDTOResponse();
 
-		responsedto.setId(dto.getId());
+		responsedto.setId(user.getId());
 		responsedto.setMessage("Created with UserID: " + user.getId());
 
 		return responsedto;
